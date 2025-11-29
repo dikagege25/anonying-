@@ -115,7 +115,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3">
             {games.map((game) => {
               const card = (
-                <div className="card-glow relative h-full">
+                <div key={game.title} className="card-glow relative h-full">
                   <div className="glow-ring" />
                   <Card
                     key={game.slug}
