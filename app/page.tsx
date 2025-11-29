@@ -63,13 +63,13 @@ export default function Home() {
         </header>
 
         {/* Hero banner */}
-        <section className="overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-tr from-[#1b1b25] via-[#24243a] to-[#151521] shadow-xl">
-          <div className="flex flex-col gap-4 px-5 py-4">
+        <section className="overflow-hidden rounded-3xl border border-yellow-400/40 bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/30">
+          <div className="flex flex-col gap-2rounded-3xl bg-[#10101A]/95 px-5 py-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-xs font-bold text-yellow-300">
                 DS
               </div>
-              <div className="space-y-1">
+              <div className="space-">
                 <p className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-yellow-300">
                   Forum Knowledge
                 </p>
@@ -77,15 +77,6 @@ export default function Home() {
                   JUAL & BELI
                 </h1>
               </div>
-            </div>
-
-            <div className="flex gap-2 overflow-x-auto pb-1">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="h-9 w-9 flex-shrink-0 rounded-lg bg-gradient-to-br from-slate-300 via-slate-100 to-slate-300"
-                />
-              ))}
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-[0.65rem] text-foreground">
@@ -124,28 +115,31 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3">
             {games.map((game) => {
               const card = (
-                <Card
-                  key={game.slug}
-                  className={`relative h-full overflow-hidden bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/10 transition-all duration-150 ${
-                    game.highlighted
-                      ? "border border-yellow-400 hover:border-yellow-300 hover:shadow-yellow-400/40"
-                      : "border border-border/50 hover:border-yellow-500/60 hover:shadow-yellow-500/30"
-                  }`}
-                >
-                  <CardContent className="h-full rounded-2xl bg-[#10101A] px-4 pb-4 pt-3">
-                    <h3 className="flex items-center gap-1.5 text-sm font-semibold text-yellow-300">
-                      {game.slug === "ml-stock" && (
-                        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
-                          <Sparkles className="h-3 w-3" />
-                        </span>
-                      )}
-                      {game.title}
-                    </h3>
-                    <p className="mt-0.5 text-xs text-muted-foreground">
-                      {game.publisher}
-                    </p>
-                  </CardContent>
-                </Card>
+                <div className="card-glow relative h-full">
+                  <div className="glow-ring" />
+                  <Card
+                    key={game.slug}
+                    className={`relative z-10 h-full overflow-hidden bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/10 transition-all duration-150 ${
+                      game.highlighted
+                        ? "border border-yellow-400 hover:border-yellow-300 hover:shadow-yellow-400/40"
+                        : "border border-border/50 hover:border-yellow-500/60 hover:shadow-yellow-500/30"
+                    }`}
+                  >
+                    <CardContent className="h-full rounded-2xl bg-[#10101A] px-4 pb-4 pt-3">
+                      <h3 className="flex items-center gap-1.5 text-sm font-semibold text-yellow-300">
+                        {game.slug === "ml-stock" && (
+                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
+                            <Sparkles className="h-3 w-3" />
+                          </span>
+                        )}
+                        {game.title}
+                      </h3>
+                      <p className="mt-0.5 text-xs text-muted-foreground">
+                        {game.publisher}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
               );
 
               // Jadikan card pertama sebagai Get Started (klik ke /users/preview)

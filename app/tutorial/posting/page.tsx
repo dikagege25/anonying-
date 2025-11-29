@@ -42,7 +42,7 @@ const tutorial = {
 
 export default function TutorialPostingPage() {
   return (
-    <main className="min-h-screen bg-[#050510] text-foreground">
+    <main className="min-h-screen bg-[#050510] bg-gradient-to-b from-[#050510] via-[#050510] to-[#050018] text-foreground">
       <div className="mx-auto flex min-h-screen max-w-md flex-col gap-5 px-4 pb-8 pt-4">
         {/* Top bar mobile-friendly */}
         <header className="flex items-center gap-3">
@@ -63,27 +63,34 @@ export default function TutorialPostingPage() {
         </header>
 
         {/* Hero / title */}
-        <section className="space-y-3 rounded-3xl border border-border/40 bg-gradient-to-tr from-[#181821] via-[#24243a] to-[#151521] p-5 shadow-xl">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-yellow-300">
-            Langkah cepat & aman
-          </p>
-          <h1 className="text-xl font-bold tracking-tight">{tutorial.title}</h1>
-          <p className="text-[0.8rem] leading-relaxed text-muted-foreground">
-            {tutorial.description}
-          </p>
+        <section className="rounded-2xl border border-yellow-400/40 bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/30">
+          <div className="space-y-2 rounded-2xl bg-[#10101A]/95 px-4 py-3">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-yellow-300">
+              Langkah cepat & aman
+            </p>
+            <h1 className="text-lg font-bold tracking-tight text-yellow-100">
+              {tutorial.title}
+            </h1>
+            <p className="text-[0.75rem] leading-relaxed text-muted-foreground">
+              {tutorial.description}
+            </p>
+          </div>
         </section>
 
         {/* Step list */}
-        <section className="space-y-3 rounded-3xl border border-border/40 bg-[#10101A] p-5 shadow-lg">
+        <section className="space-y-3 rounded-3xl border border-yellow-500/20 bg-gradient-to-b from-[#10101a] via-[#0b0b18] to-[#050510] p-5 shadow-[0_0_32px_rgba(234,179,8,0.2)]">
           <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
             Langkah-langkah
           </h2>
           <ol className="space-y-3 text-xs text-foreground">
             {tutorial.steps.map((step, index) => (
-              <li key={index} className="space-y-2 rounded-2xl bg-black/25 p-3">
+              <li
+                key={index}
+                className="space-y-2 rounded-2xl border border-yellow-500/10 bg-black/30 p-3 shadow-md shadow-yellow-500/10"
+              >
                 {/* Wide but short image / screenshot */}
                 <div
-                  className={`h-${step.height} w-full overflow-hidden rounded-xl border border-border/40 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-black/40`}
+                  className={`h-${step.height} w-full overflow-hidden rounded-xl border-2 border-yellow-400/70 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-yellow-500/40`}
                 >
                   {step.image ? (
                     <img
@@ -110,7 +117,7 @@ export default function TutorialPostingPage() {
         </section>
 
         {/* Extra info + CTA */}
-        <section className="mt-auto space-y-3 rounded-2xl border border-border/30 bg-[#151521] p-4">
+        <section className="mt-auto space-y-3 rounded-2xl border border-yellow-500/25 bg-gradient-to-r from-[#151521] via-[#211b33] to-[#151521] p-4 shadow-[0_0_24px_rgba(234,179,8,0.2)]">
           <p className="text-[0.7rem] leading-relaxed text-muted-foreground">
             Catatan: Ini hanya contoh awal tutorial posting. Silakan sesuaikan
             teks, langkah, dan link sesuai SOP resmi DreamSTORE agar user HP

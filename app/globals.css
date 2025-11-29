@@ -120,3 +120,53 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Glow ring animation for game cards */
+@keyframes glow-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glow-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 1.5rem;
+  background: conic-gradient(
+    from 0deg,
+    rgba(250, 204, 21, 0),
+    rgba(250, 204, 21, 0.7),
+    rgba(56, 189, 248, 0),
+    rgba(250, 204, 21, 0.7),
+    rgba(250, 204, 21, 0)
+  );
+  filter: blur(10px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: glow-rotate 8s linear infinite;
+  transition: opacity 0.4s ease-out, filter 0.4s ease-out;
+}
+
+.card-glow:hover .glow-ring,
+.card-glow:focus-within .glow-ring {
+  opacity: 0.9;
+  filter: blur(16px);
+}
+
+/* Simple page enter animation for all pages */
+@keyframes page-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page-enter {
+  animation: page-fade-up 0.35s ease-out;
+  transform-origin: top center;
+}
