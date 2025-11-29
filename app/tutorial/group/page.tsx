@@ -2,47 +2,44 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import groupStepImage from "@/asset/buat-group/step-1.jpeg";
-import foto2 from "@/asset/buat-group/step-2.jpeg";
-import foto3 from "@/asset/buat-group/step-3.jpeg";
-import foto4 from "@/asset/buat-group/step-4.jpeg";
-const tutorial = {
-  title: "Tutorial Buat Group DreamSTORE",
-  description:
-    "Panduan singkat untuk membuat group transaksi di DreamSTORE / Telegram agar komunikasi jual beli akun jadi lebih rapi dan aman.",
-  steps: [
-    {
-      text: "Buka aplikasi telegram mu lalu ikuti step di foto",
-      image: groupStepImage.src,
-      height: 25,
-    },
-    {
-      text: "Pilih opsi grup baru .",
-      image: foto2.src,
-      height: 28,
-    },
-    {
-      text: "Pilih anggota yang ingin di tambah kan ke group .",
-      image: foto3.src,
-      height: 28,
-    },
-    {
-      text: "Buat nama group sesuai nominal transaksi",
-      image: foto4.src,
-      height: 28,
-    },
-    {
-      text: "Gunakan group ini untuk update progress pembayaran, pengiriman data akun, dan konfirmasi akhir setelah akun berhasil dipindahkan.",
-      image: groupStepImage.src,
-      height: 28,
-    },
-    {
-      text: "Setelah transaksi selesai dan semua pihak setuju, kamu bisa menyimpan riwayat chat lalu menutup / membisukan group.",
-      image: groupStepImage.src,
-      height: 24,
-    },
-  ],
+import groupStepImage1 from "@/asset/buat-group/step-1.jpeg";
+import groupStepImage2 from "@/asset/buat-group/step-2.jpeg";
+import groupStepImage3 from "@/asset/buat-group/step-3.jpeg";
+import groupStepImage4 from "@/asset/buat-group/step-4.jpeg";
+
+type TutorialStep = {
+  text: string;
+  image: string;
+  height: number;
 };
+
+const tutorialTitle = "Tutorial Buat Group DreamSTORE";
+
+const tutorialDescription =
+  "Panduan singkat untuk membuat group transaksi di DreamSTORE / Telegram agar komunikasi jual beli akun jadi lebih rapi dan aman.";
+
+const tutorialSteps: TutorialStep[] = [
+  {
+    text: "Buka aplikasi Telegram lalu ikuti step di foto.",
+    image: groupStepImage1.src,
+    height: 25,
+  },
+  {
+    text: "Pilih opsi Grup baru di Telegram.",
+    image: groupStepImage2.src,
+    height: 28,
+  },
+  {
+    text: "Pilih anggota yang ingin kamu tambahkan ke group transaksi.",
+    image: groupStepImage3.src,
+    height: 28,
+  },
+  {
+    text: "Buat nama group sesuai nominal / tujuan transaksi.",
+    image: groupStepImage4.src,
+    height: 28,
+  },
+];
 
 export default function TutorialGroupPage() {
   return (
@@ -73,10 +70,10 @@ export default function TutorialGroupPage() {
               Group transaksi yang rapi
             </p>
             <h1 className="text-lg font-bold tracking-tight text-yellow-100">
-              {tutorial.title}
+              {tutorialTitle}
             </h1>
             <p className="text-[0.75rem] leading-relaxed text-muted-foreground">
-              {tutorial.description}
+              {tutorialDescription}
             </p>
           </div>
         </section>
@@ -87,7 +84,7 @@ export default function TutorialGroupPage() {
             Langkah-langkah
           </h2>
           <ol className="space-y-3 text-xs text-foreground">
-            {tutorial.steps.map((step, index) => (
+            {tutorialSteps.map((step, index) => (
               <li
                 key={index}
                 className="step-animate space-y-2 rounded-2xl border border-yellow-500/10 bg-black/30 p-3 shadow-md shadow-yellow-500/10"
