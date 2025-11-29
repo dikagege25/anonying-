@@ -1,29 +1,44 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Verified, Sparkles } from "lucide-react";
+import {
+  Verified,
+  Sparkles,
+  Users,
+  ShoppingBag,
+  BadgeDollarSign,
+} from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const games = [
   {
     slug: "ml-stock",
-    title: "Tutorial POSTING",
-    publisher: "Moonton",
+    title: "Cara POSTING Di GROUP JB",
+    publisher: "DreamSTORE",
     highlighted: true,
   },
   {
-    slug: "ml-titip",
-    title: "Mobile Legends Titip Jual",
-    publisher: "Moonton",
+    slug: "group-guide",
+    title: "Cara membuat Group (MC) ?",
+    publisher: "DreamSTORE",
+    highlighted: true,
   },
   {
-    slug: "ff-stock",
-    title: "Free Fire Stock",
-    publisher: "Garena",
+    slug: "sell-guide",
+    title: "Bagaimana Cara JUAL Akun?",
+    publisher: "DreamSTORE",
+    highlighted: true,
   },
   {
-    slug: "ff-titip",
-    title: "Free Fire Titip Jual",
-    publisher: "Garena",
+    slug: "buy-guide",
+    title: "Bagaimana Cara Beli Akun?",
+    publisher: "DreamSTORE",
+    highlighted: true,
   },
 ];
 
@@ -80,12 +95,7 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 gap-2 text-[0.65rem] text-foreground">
-              {[
-                "Jasa POSTING ",
-                "REKBER ON 24 JAM",
-                "Jasa pengamanan",
-                "Sistem REFF/NOREF",
-              ].map((label) => (
+              {["Posting ", "Aman", "REKBER", "24/7"].map((label) => (
                 <div
                   key={label}
                   className="flex items-center justify-between rounded-xl bg-black/35 px-3 py-2 text-[0.65rem]"
@@ -107,10 +117,10 @@ export default function Home() {
         </section>
 
         {/* Games grid */}
-        <section className="space-y-3">
-          <h2 className="text-sm font-bold uppercase tracking-[0.25em]">
+        <section className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-300">
             Tutorial
-          </h2>
+          </p>
 
           <div className="grid grid-cols-2 gap-3">
             {games.map((game) => {
@@ -130,6 +140,21 @@ export default function Home() {
                         {game.slug === "ml-stock" && (
                           <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
                             <Sparkles className="h-3 w-3" />
+                          </span>
+                        )}
+                        {game.slug === "group-guide" && (
+                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
+                            <Users className="h-3 w-3" />
+                          </span>
+                        )}
+                        {game.slug === "sell-guide" && (
+                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
+                            <BadgeDollarSign className="h-3 w-3" />
+                          </span>
+                        )}
+                        {game.slug === "buy-guide" && (
+                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
+                            <ShoppingBag className="h-3 w-3" />
                           </span>
                         )}
                         {game.title}
@@ -155,8 +180,94 @@ export default function Home() {
                 );
               }
 
+              if (game.slug === "group-guide") {
+                return (
+                  <Link
+                    key={game.slug}
+                    href="/tutorial/group"
+                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
+                  >
+                    {card}
+                  </Link>
+                );
+              }
+
+              if (game.slug === "buy-guide") {
+                return (
+                  <Link
+                    key={game.slug}
+                    href="/tutorial/beli"
+                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
+                  >
+                    {card}
+                  </Link>
+                );
+              }
+
+              if (game.slug === "sell-guide") {
+                return (
+                  <Link
+                    key={game.slug}
+                    href="/tutorial/jual"
+                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
+                  >
+                    {card}
+                  </Link>
+                );
+              }
+
               return card;
             })}
+          </div>
+        </section>
+
+        {/* JB dictionary accordion */}
+        <section className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-300">
+            FAQ
+          </p>
+          <div className="relative overflow-hidden rounded-2xl border border-yellow-400/40 bg-gradient-to-br from-[#11111a] via-[#151526] to-[#050510] p-[1px] shadow-[0_0_28px_rgba(234,179,8,0.25)]">
+          <div className="absolute inset-[-40%] bg-[radial-gradient(circle_at_top,_rgba(250,204,21,0.25),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(56,189,248,0.18),_transparent_55%)] opacity-70" />
+          <div className="relative rounded-2xl bg-[#050510]/90 p-3">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="jb">
+              <AccordionTrigger className="text-xs text-foreground">
+                Apa itu <span className="ml-1 font-semibold">JB</span>?
+              </AccordionTrigger>
+              <AccordionContent className="text-[0.75rem] leading-relaxed text-muted-foreground">
+                <span className="font-semibold text-foreground">JB</span> =
+                singkatan dari <span className="font-semibold">Jual Beli</span>.
+                Dipakai untuk menyebut semua aktivitas transaksi akun / item
+                game.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="rekber">
+              <AccordionTrigger className="text-xs text-foreground">
+                Apa itu <span className="ml-1 font-semibold">Rekber</span>?
+              </AccordionTrigger>
+              <AccordionContent className="text-[0.75rem] leading-relaxed text-muted-foreground">
+                <span className="font-semibold text-foreground">Rekber</span>{" "}
+                (rekening bersama) adalah sistem penengah: pembeli bayar ke
+                pihak ketiga dulu, lalu penjual kirim akun. Setelah aman, uang
+                baru diteruskan ke penjual.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="titip-jual">
+              <AccordionTrigger className="text-xs text-foreground">
+                Apa itu <span className="ml-1 font-semibold">Titip Jual</span>?
+              </AccordionTrigger>
+              <AccordionContent className="text-[0.75rem] leading-relaxed text-muted-foreground">
+                <span className="font-semibold text-foreground">
+                  Titip Jual
+                </span>{" "}
+                artinya kamu menitipkan akun ke pihak DreamSTORE / admin untuk
+                dibantu dipasarkan dan diurus proses jual belinya.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+          </div>
           </div>
         </section>
       </div>
