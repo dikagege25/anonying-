@@ -3,12 +3,6 @@ import { Telegraf, Types } from "telegraf";
 
 export const runtime = "nodejs";
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
-
-if (!token) {
-  throw new Error("TELEGRAM_BOT_TOKEN environment variable is not set");
-}
-
 const bot = new Telegraf("8353789862:AAHtpjPzwnRpkD-eAIm4TcxoF_FSjzgOERc");
 
 bot.start((ctx) => ctx.reply("Halo! Bot Telegraf + Next.js siap."));
