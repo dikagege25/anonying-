@@ -11,26 +11,32 @@ const tutorial = {
     {
       text: "Buka bot @storeDREAM_bot di Telegram, lalu pilih menu untuk membuat group / ruang transaksi (jika tersedia).",
       image: "/tutorial/group/step-1.png",
+      height: 25,
     },
     {
       text: "Buat group baru di Telegram bersama pembeli / penjual yang terlibat, lalu undang akun bot / admin DreamSTORE jika diperlukan.",
       image: "/tutorial/group/step-2.png",
+      height: 28,
     },
     {
-      text: "Atur nama group dengan jelas, misalnya: \"Transaksi Akun ML - Penjual A x Pembeli B\".",
+      text: 'Atur nama group dengan jelas, misalnya: "Transaksi Akun ML - Penjual A x Pembeli B".',
       image: "/tutorial/group/step-3.png",
+      height: 28,
     },
     {
       text: "Kirim FORMAT DreamSTORE di dalam group agar semua data akun, harga, dan syarat transaksi tercatat dengan rapi.",
       image: "/tutorial/group/step-4.png",
+      height: 28,
     },
     {
       text: "Gunakan group ini untuk update progress pembayaran, pengiriman data akun, dan konfirmasi akhir setelah akun berhasil dipindahkan.",
       image: "/tutorial/group/step-5.png",
+      height: 28,
     },
     {
       text: "Setelah transaksi selesai dan semua pihak setuju, kamu bisa menyimpan riwayat chat lalu menutup / membisukan group.",
       image: "/tutorial/group/step-6.png",
+      height: 24,
     },
   ],
 };
@@ -83,7 +89,9 @@ export default function TutorialGroupPage() {
                 key={index}
                 className="space-y-2 rounded-2xl border border-yellow-500/10 bg-black/30 p-3 shadow-md shadow-yellow-500/10"
               >
-                <div className="h-32 w-full overflow-hidden rounded-xl border-2 border-yellow-400/70 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-yellow-500/40">
+                <div
+                  className={`h-${step.height} w-full overflow-hidden rounded-xl border-2 border-yellow-400/70 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-yellow-500/40 `}
+                >
                   {step.image ? (
                     <img
                       src={step.image}
@@ -127,4 +135,3 @@ export default function TutorialGroupPage() {
     </main>
   );
 }
-

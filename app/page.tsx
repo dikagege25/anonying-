@@ -58,7 +58,7 @@ export default function Home() {
                 Dream<span className="text-yellow-300">STORE</span>
               </p>
               <p className="text-[0.65rem] text-muted-foreground">
-                Forum JB • aman & rapi
+                Forum Jual-beli
               </p>
             </div>
           </div>
