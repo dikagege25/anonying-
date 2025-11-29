@@ -1,34 +1,46 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
-
-const tutorials: Record<
-  string,
-  { title: string; description: string; steps: string[] }
-> = {
-  preview: {
-    title: "Tutorial Posting DreamSTORE",
-    description:
-      "Ikuti langkah-langkah berikut untuk membuat postingan jual beli akun game di DreamSTORE dengan rapi dan mudah dipahami calon pembeli.",
-    steps: [
-      "Siapkan detail akun yang mau dijual: game, server, level, skin penting, dan harga yang kamu inginkan.",
-      "Buka DreamSTORE lalu pilih menu / kategori yang sesuai dengan game yang ingin kamu jual.",
-      "Tulis judul postingan yang singkat dan jelas, misalnya: \"Akun ML Sultan – Banyak Skin Epic & Legend\".",
-      "Isi deskripsi dengan informasi lengkap: login yang dipakai, progres akun, bonus item, serta alasan jual (jika perlu).",
-      "Cantumkan harga dan metode pembayaran yang kamu terima, lalu upload screenshot akun yang paling menarik (opsional).",
-      "Cek ulang data postingan, pastikan tidak ada typo, lalu kirim / submit agar bisa dicek atau dipublikasikan oleh admin.",
-    ],
-  },
+import step1Image from "@/asset/tutor_posting_1.jpeg";
+import stepImage2 from "@/asset/tutor_posting_2.jpeg";
+import stepImage3 from "@/asset/tutor_posting_3.jpeg";
+import stepImage4 from "@/asset/tutorial_posting_4.jpeg";
+import stepImage5 from "@/asset/tutorial_posting_5.jpeg";
+const tutorial = {
+  title: "Tutorial Posting DreamSTORE",
+  description:
+    "Ikuti langkah-langkah berikut untuk membuat postingan jual beli akun game di DreamSTORE dengan rapi dan mudah dipahami calon pembeli.",
+  steps: [
+    {
+      text: "Searching  bot @storeDREAM_bot di aplikasi telegram.",
+      image: step1Image.src,
+      height: 15,
+    },
+    {
+      text: "Kemudian start bot tersebut untuk memunculkan opsi untuk layanan.",
+      image: stepImage2.src,
+      height: 20,
+    },
+    {
+      text: `Pilih tombol paling atas .`,
+      image: stepImage3.src,
+      height: 30,
+    },
+    {
+      text: "Pilih tujuan mu jual / beli .",
+      image: stepImage4.src,
+      height: 20,
+    },
+    {
+      text: "Copy FORMAT dengan tap tombol Copy FORMAT.",
+      image: stepImage5.src,
+      height: 50,
+    },
+  ],
 };
 
-export default function UserPage() {
-  const params = useParams<{ id: string }>();
-  const id = params.id;
-
-  const tutorial = tutorials[id] ?? tutorials.preview;
-
+export default function TutorialPostingPage() {
   return (
     <main className="min-h-screen bg-[#050510] text-foreground">
       <div className="mx-auto flex min-h-screen max-w-md flex-col gap-5 px-4 pb-8 pt-4">
@@ -44,7 +56,9 @@ export default function UserPage() {
             <span className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-yellow-300">
               Tutorial
             </span>
-            <span className="text-xs text-muted-foreground">Panduan DreamSTORE</span>
+            <span className="text-xs text-muted-foreground">
+              Tutorial Posting DreamSTORE
+            </span>
           </div>
         </header>
 
@@ -66,13 +80,20 @@ export default function UserPage() {
           </h2>
           <ol className="space-y-3 text-xs text-foreground">
             {tutorial.steps.map((step, index) => (
-              <li
-                key={index}
-                className="space-y-2 rounded-2xl bg-black/25 p-3"
-              >
-                {/* Wide but short image placeholder */}
-                <div className="h-20 w-full overflow-hidden rounded-xl border border-border/40 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-black/40">
-                  <div className="h-full w-full opacity-40" />
+              <li key={index} className="space-y-2 rounded-2xl bg-black/25 p-3">
+                {/* Wide but short image / screenshot */}
+                <div
+                  className={`h-${step.height} w-full overflow-hidden rounded-xl border border-border/40 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-black/40`}
+                >
+                  {step.image ? (
+                    <img
+                      src={step.image}
+                      alt={`Step ${index + 1}`}
+                      className="h-full w-full object-cover "
+                    />
+                  ) : (
+                    <div className="h-full w-full opacity-40" />
+                  )}
                 </div>
 
                 <div className="flex gap-3">
@@ -80,7 +101,7 @@ export default function UserPage() {
                     {index + 1}
                   </span>
                   <span className="pt-0.5 text-[0.75rem] leading-relaxed">
-                    {step}
+                    {step.text}
                   </span>
                 </div>
               </li>
@@ -91,9 +112,9 @@ export default function UserPage() {
         {/* Extra info + CTA */}
         <section className="mt-auto space-y-3 rounded-2xl border border-border/30 bg-[#151521] p-4">
           <p className="text-[0.7rem] leading-relaxed text-muted-foreground">
-            Catatan: Ini hanya contoh awal tutorial. Silakan sesuaikan teks,
-            langkah, dan link sesuai SOP resmi DreamSTORE agar user HP mudah
-            mengikuti.
+            Catatan: Ini hanya contoh awal tutorial posting. Silakan sesuaikan
+            teks, langkah, dan link sesuai SOP resmi DreamSTORE agar user HP
+            mudah mengikuti.
           </p>
           <Button
             asChild
