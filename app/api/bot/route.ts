@@ -5,7 +5,15 @@ export const runtime = "nodejs";
 
 const bot = new Telegraf("8353789862:AAHtpjPzwnRpkD-eAIm4TcxoF_FSjzgOERc");
 
-bot.start((ctx) => ctx.reply("Halo! Bot Telegraf + Next.js siap."));
+bot.start((ctx) =>
+  ctx.reply("Halo! Bot Telegraf + Next.js siap.", {
+    reply_markup: {
+      inline_keyboard: [
+        [{ text: "Setuju dan lanjut kan", web_app: { url: `${ctx.from.id}` } }],
+      ],
+    },
+  })
+);
 bot.help((ctx) => ctx.reply("Kirim teks apa saja, nanti aku echo."));
 bot.on("text", (ctx) => {
   if ("text" in ctx.message) {
