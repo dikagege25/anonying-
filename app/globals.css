@@ -170,3 +170,55 @@
   animation: page-fade-up 0.35s ease-out;
   transform-origin: top center;
 }
+
+/* Step + image appear animations */
+@keyframes step-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes image-glow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+    box-shadow: 0 0 0 rgba(234, 179, 8, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 28px rgba(234, 179, 8, 0.35);
+  }
+}
+
+.step-animate {
+  animation: step-fade-up 0.4s ease-out;
+}
+
+.step-image-animate {
+  animation: image-glow-in 0.45s ease-out;
+}
+
+.step-glow-ring {
+  position: absolute;
+  inset: -10px;
+  border-radius: 1.25rem;
+  background: conic-gradient(
+    from 0deg,
+    rgba(250, 204, 21, 0),
+    rgba(250, 204, 21, 0.6),
+    rgba(56, 189, 248, 0),
+    rgba(250, 204, 21, 0.6),
+    rgba(250, 204, 21, 0)
+  );
+  filter: blur(10px);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+  animation: glow-rotate 10s linear infinite;
+}

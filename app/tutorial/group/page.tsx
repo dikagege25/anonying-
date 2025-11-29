@@ -2,40 +2,43 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
+import groupStepImage from "@/asset/buat-group/step-1.jpeg";
+import foto2 from "@/asset/buat-group/step-2.jpeg";
+import foto3 from "@/asset/buat-group/step-3.jpeg";
+import foto4 from "@/asset/buat-group/step-4.jpeg";
 const tutorial = {
   title: "Tutorial Buat Group DreamSTORE",
   description:
     "Panduan singkat untuk membuat group transaksi di DreamSTORE / Telegram agar komunikasi jual beli akun jadi lebih rapi dan aman.",
   steps: [
     {
-      text: "Buka bot @storeDREAM_bot di Telegram, lalu pilih menu untuk membuat group / ruang transaksi (jika tersedia).",
-      image: "/tutorial/group/step-1.png",
+      text: "Buka aplikasi telegram mu lalu ikuti step di foto",
+      image: groupStepImage.src,
       height: 25,
     },
     {
-      text: "Buat group baru di Telegram bersama pembeli / penjual yang terlibat, lalu undang akun bot / admin DreamSTORE jika diperlukan.",
-      image: "/tutorial/group/step-2.png",
+      text: "Pilih opsi grup baru .",
+      image: foto2.src,
       height: 28,
     },
     {
-      text: 'Atur nama group dengan jelas, misalnya: "Transaksi Akun ML - Penjual A x Pembeli B".',
-      image: "/tutorial/group/step-3.png",
+      text: "Pilih anggota yang ingin di tambah kan ke group .",
+      image: foto3.src,
       height: 28,
     },
     {
-      text: "Kirim FORMAT DreamSTORE di dalam group agar semua data akun, harga, dan syarat transaksi tercatat dengan rapi.",
-      image: "/tutorial/group/step-4.png",
+      text: "Buat nama group sesuai nominal transaksi",
+      image: foto4.src,
       height: 28,
     },
     {
       text: "Gunakan group ini untuk update progress pembayaran, pengiriman data akun, dan konfirmasi akhir setelah akun berhasil dipindahkan.",
-      image: "/tutorial/group/step-5.png",
+      image: groupStepImage.src,
       height: 28,
     },
     {
       text: "Setelah transaksi selesai dan semua pihak setuju, kamu bisa menyimpan riwayat chat lalu menutup / membisukan group.",
-      image: "/tutorial/group/step-6.png",
+      image: groupStepImage.src,
       height: 24,
     },
   ],
@@ -87,20 +90,29 @@ export default function TutorialGroupPage() {
             {tutorial.steps.map((step, index) => (
               <li
                 key={index}
-                className="space-y-2 rounded-2xl border border-yellow-500/10 bg-black/30 p-3 shadow-md shadow-yellow-500/10"
+                className="step-animate space-y-2 rounded-2xl border border-yellow-500/10 bg-black/30 p-3 shadow-md shadow-yellow-500/10"
               >
                 <div
-                  className={`h-${step.height} w-full overflow-hidden rounded-xl border-2 border-yellow-400/70 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-yellow-500/40 `}
+                  className={`step-image-animate relative h-${step.height} w-full overflow-hidden rounded-xl border-2 border-yellow-400/70 bg-gradient-to-r from-[#24243a] via-[#2b2b45] to-[#181821] shadow-md shadow-yellow-500/40`}
                 >
+                  <div className="step-glow-ring" />
                   {step.image ? (
                     <img
                       src={step.image}
                       alt={`Step ${index + 1}`}
-                      className="h-full w-full object-cover"
+                      className="relative z-10 h-full w-full object-cover"
                     />
                   ) : (
                     <div className="h-full w-full opacity-40" />
                   )}
+                  <div className="pointer-events-none absolute inset-0 z-20 flex items-end justify-between px-2 pb-1 text-[0.6rem] font-semibold tracking-wide text-white/80">
+                    <span className="rounded-full bg-black/45 px-2 py-0.5">
+                      Android
+                    </span>
+                    <span className="rounded-full bg-black/45 px-2 py-0.5">
+                      iOS
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex gap-3">

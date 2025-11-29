@@ -38,7 +38,7 @@ export function ContactTelegramDreamstore() {
           <DropdownMenuSeparator />
           <DropdownMenuItem asChild>
             <a
-              href="https://t.me/storeDREAM_bot"
+              href="https://t.me/dream_store_2"
               target="_blank"
               rel="noreferrer"
               className="block w-full text-xs"
@@ -49,13 +49,12 @@ export function ContactTelegramDreamstore() {
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
             <a
-              href="https://t.me/dreamSTORE_cs"
+              href="https://t.me/dream"
               target="_blank"
               rel="noreferrer"
               className="block w-full text-xs"
             >
-              CS / Admin:{" "}
-              <span className="font-semibold">@dreamSTORE_cs</span>
+              CS / Admin: <span className="font-semibold">@dreamSTORE_cs</span>
             </a>
           </DropdownMenuItem>
         </DropdownMenuContent>
