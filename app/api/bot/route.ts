@@ -9,7 +9,14 @@ bot.start((ctx) =>
   ctx.reply("Halo! Bot Telegraf + Next.js siap.", {
     reply_markup: {
       inline_keyboard: [
-        [{ text: "Setuju dan lanjut kan", web_app: { url: `${ctx.from.id}` } }],
+        [
+          {
+            text: "Setuju dan lanjut kan",
+            web_app: {
+              url: `https://dreamstr.vercel.app/users/${ctx.from.id}`,
+            },
+          },
+        ],
       ],
     },
   })
