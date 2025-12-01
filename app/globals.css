@@ -222,3 +222,20 @@
   z-index: 0;
   animation: glow-rotate 10s linear infinite;
 }
+
+@keyframes blog-card-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    filter: saturate(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: saturate(1);
+  }
+}
+
+.blog-card {
+  animation: blog-card-pop 0.5s ease-out both;
+}

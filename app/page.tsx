@@ -1,13 +1,4 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Verified,
-  Sparkles,
-  Users,
-  ShoppingBag,
-  BadgeDollarSign,
-} from "lucide-react";
+import { Verified } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -15,33 +6,10 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import ContactTelegramDreamstore from "@/components/contact-telegram-dreamstore";
-
-const games = [
-  {
-    slug: "ml-stock",
-    title: "Cara POSTING Di GROUP JB",
-    publisher: "DreamSTORE",
-    highlighted: true,
-  },
-  {
-    slug: "group-guide",
-    title: "Cara membuat Group (MC) ?",
-    publisher: "DreamSTORE",
-    highlighted: true,
-  },
-  {
-    slug: "sell-guide",
-    title: "Bagaimana Cara JUAL Akun?",
-    publisher: "DreamSTORE",
-    highlighted: true,
-  },
-  {
-    slug: "buy-guide",
-    title: "Bagaimana Cara Beli Akun?",
-    publisher: "DreamSTORE",
-    highlighted: true,
-  },
-];
+import MovingPhotoStrip from "@/components/moving-photo-strip";
+import HubungkanAkses from "@/components/hubungkan-akses";
+import PromoHeroBanner from "@/components/promo-hero-banner";
+import SponsorMarquee from "@/components/sponsor-marquee";
 
 export default function Home() {
   return (
@@ -65,149 +33,13 @@ export default function Home() {
           <ContactTelegramDreamstore />
         </header>
 
-        {/* Hero banner */}
-        <section className="overflow-hidden rounded-3xl border border-yellow-400/40 bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/30">
-          <div className="flex flex-col gap-2rounded-3xl bg-[#10101A]/95 px-5 py-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-xs font-bold text-yellow-300">
-                DS
-              </div>
-              <div className="space-">
-                <p className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-yellow-300">
-                  Forum Knowledge
-                </p>
-                <h1 className="text-2xl font-extrabold tracking-[0.12em] text-foreground">
-                  JUAL & BELI
-                </h1>
-              </div>
-            </div>
+        <PromoHeroBanner />
 
-            <div className="grid grid-cols-2 gap-2 text-[0.65rem] text-foreground">
-              {["Posting ", "Aman", "REKBER", "24/7"].map((label) => (
-                <div
-                  key={label}
-                  className="flex items-center justify-between rounded-xl bg-black/35 px-3 py-2 text-[0.65rem]"
-                >
-                  <span className="max-w-[8rem] truncate font-semibold">
-                    {label}
-                  </span>
-                  <span className="ml-2 rounded-full bg-emerald-500 px-2 py-0.5 text-[0.6rem] font-medium text-black">
-                    <Verified />
-                  </span>
-                </div>
-              ))}
-            </div>
+        <SponsorMarquee />
 
-            <p className="pt-1 text-center text-[0.6rem] text-muted-foreground">
-              Pastikan selalu transaksi melalui kontak resmi store kamu.
-            </p>
-          </div>
-        </section>
+        <MovingPhotoStrip />
 
-        {/* Games grid */}
-        <section className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-300">
-            Tutorial
-          </p>
-
-          <div className="grid grid-cols-2 gap-3">
-            {games.map((game) => {
-              const card = (
-                <div key={game.title} className="card-glow relative h-full">
-                  <div className="glow-ring" />
-                  <Card
-                    key={game.slug}
-                    className={`relative z-10 h-full overflow-hidden bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/10 transition-all duration-150 ${
-                      game.highlighted
-                        ? "border border-yellow-400 hover:border-yellow-300 hover:shadow-yellow-400/40"
-                        : "border border-border/50 hover:border-yellow-500/60 hover:shadow-yellow-500/30"
-                    }`}
-                  >
-                    <CardContent className="h-full rounded-2xl bg-[#10101A] px-4 pb-4 pt-3">
-                      <h3 className="flex items-center gap-1.5 text-sm font-semibold text-yellow-300">
-                        {game.slug === "ml-stock" && (
-                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
-                            <Sparkles className="h-3 w-3" />
-                          </span>
-                        )}
-                        {game.slug === "group-guide" && (
-                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
-                            <Users className="h-3 w-3" />
-                          </span>
-                        )}
-                        {game.slug === "sell-guide" && (
-                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
-                            <BadgeDollarSign className="h-3 w-3" />
-                          </span>
-                        )}
-                        {game.slug === "buy-guide" && (
-                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-yellow-400/20">
-                            <ShoppingBag className="h-3 w-3" />
-                          </span>
-                        )}
-                        {game.title}
-                      </h3>
-                      <p className="mt-0.5 text-xs text-muted-foreground">
-                        {game.publisher}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-
-              // Jadikan card pertama sebagai Get Started (klik ke /users/preview)
-              if (game.slug === "ml-stock") {
-                return (
-                  <Link
-                    key={game.slug}
-                    href="/tutorial/posting"
-                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
-                  >
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (game.slug === "group-guide") {
-                return (
-                  <Link
-                    key={game.slug}
-                    href="/tutorial/group"
-                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
-                  >
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (game.slug === "buy-guide") {
-                return (
-                  <Link
-                    key={game.slug}
-                    href="/tutorial/beli"
-                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
-                  >
-                    {card}
-                  </Link>
-                );
-              }
-
-              if (game.slug === "sell-guide") {
-                return (
-                  <Link
-                    key={game.slug}
-                    href="/tutorial/jual"
-                    className="block h-full transform transition-transform duration-150 hover:scale-[1.02] active:scale-[0.99]"
-                  >
-                    {card}
-                  </Link>
-                );
-              }
-
-              return card;
-            })}
-          </div>
-        </section>
+        <HubungkanAkses />
 
         {/* JB dictionary accordion */}
         <section className="space-y-2">
