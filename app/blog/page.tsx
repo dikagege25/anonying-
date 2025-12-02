@@ -5,12 +5,12 @@ import { blogPosts } from "@/lib/blog-posts";
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-[#101015] text-foreground">
+    <main className="min-h-screen bg-gradient-to-br from-[#0b0b16] via-[#15162a] to-[#070710] text-foreground page-enter">
       <div className="mx-auto flex min-h-screen max-w-3xl flex-col gap-8 px-4 pb-12 pt-6">
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-yellow-300/70 hover:bg-white/10"
+            className="inline-flex items-center gap-2 rounded-2xl border border-yellow-200/40 bg-white/10 px-4 py-2 text-sm font-semibold text-yellow-100 transition hover:border-yellow-200 hover:bg-yellow-400/10 section-animate"
             aria-label="Kembali ke halaman utama"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -18,8 +18,11 @@ export default function BlogPage() {
           </Link>
         </div>
 
-        <header className="space-y-2 rounded-3xl border border-yellow-400/40 bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#101015] p-[1px] shadow-lg shadow-yellow-500/30">
-          <div className="rounded-3xl bg-[#050510]/90 px-6 py-5">
+        <header
+          className="space-y-2 rounded-[28px] border border-yellow-300/40 bg-gradient-to-br from-[#1f1f33] via-[#181a35] to-[#10121f] p-[1px] shadow-lg shadow-yellow-500/30 section-animate pulse-border"
+          data-animate-delay="1"
+        >
+          <div className="rounded-[26px] bg-gradient-to-br from-[#0a0b1b]/95 via-[#090a16]/95 to-[#05050c]/95 px-6 py-5">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-yellow-300">
               Blog DreamSTORE
             </p>
@@ -33,7 +36,7 @@ export default function BlogPage() {
           </div>
         </header>
 
-        <section className="space-y-6">
+        <section className="space-y-6 section-animate rounded-[28px] border border-yellow-200/35 bg-gradient-to-br from-[#1a1b34]/90 via-[#111327]/90 to-[#080812]/95 p-6" data-animate-delay="2">
           <div className="flex items-center justify-between text-sm">
             <span className="font-semibold uppercase tracking-[0.3em] text-yellow-300">
               Barisan Blog
@@ -48,15 +51,15 @@ export default function BlogPage() {
               <Link
                 key={post.title}
                 href={post.href}
-                className="blog-card card-glow relative block rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/0 to-white/5 p-5 transition hover:border-yellow-300/80 hover:from-white/10"
+                className="blog-card card-glow relative block rounded-3xl border border-white/10 bg-gradient-to-br from-[#1d1f39]/80 via-[#101226]/90 to-[#080912]/95 p-5 transition hover:border-yellow-300/70 hover:shadow-[0_0_25px_rgba(234,179,8,0.25)]"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <span className="rounded-2xl border border-yellow-300/40 bg-yellow-300/10 px-3 py-1 text-xs font-semibold text-yellow-200">
+                  <span className="rounded-2xl border border-yellow-300/40 bg-yellow-300/15 px-3 py-1 text-xs font-semibold text-yellow-100">
                     {(index + 1).toString().padStart(2, "0")}
                   </span>
                   <div className="space-y-2">
-                    <span className="inline-flex rounded-full border border-yellow-300/30 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-yellow-300">
+                    <span className="inline-flex rounded-full border border-yellow-300/40 bg-yellow-300/10 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-yellow-200">
                       {post.tag}
                     </span>
                     <h2 className="text-xl font-semibold text-white">

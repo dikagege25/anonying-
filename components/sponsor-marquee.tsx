@@ -6,15 +6,15 @@ export default function SponsorMarquee() {
   const loopedSponsors = [...sponsors, ...sponsors];
 
   return (
-    <section className="relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-r from-white/5 via-transparent to-white/5 px-4 py-6 text-center">
-      <p className="text-[0.7rem] font-semibold uppercase tracking-[0.4em] text-yellow-200">
+    <section className="relative overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-r from-white/5 via-transparent to-white/5 px-3 py-4 text-center text-xs sm:text-sm">
+      <p className="text-[0.55rem] font-semibold uppercase tracking-[0.35em] text-yellow-200">
         Sponsor & Partners
       </p>
 
-      <div className="mt-4 overflow-hidden">
-        <div className="sponsor-track text-lg font-bold uppercase tracking-[0.3em] text-white/70">
+      <div className="mt-3 overflow-hidden">
+        <div className="sponsor-track text-sm font-semibold uppercase tracking-[0.25em] text-white/70 sm:text-base">
           {loopedSponsors.map((name, index) => (
-            <span key={`${name}-${index}`} className="px-6 text-lg sm:text-xl">
+            <span key={`${name}-${index}`} className="px-3 text-sm sm:text-base">
               {name}
             </span>
           ))}

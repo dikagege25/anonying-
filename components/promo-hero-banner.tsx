@@ -45,11 +45,11 @@ export default function PromoHeroBanner() {
   }, []);
 
   return (
-    <section className="overflow-hidden rounded-3xl border border-yellow-400/50 bg-gradient-to-br from-[#1b1b25] via-[#181821] to-[#0b0b12] p-[1px] shadow-[0_0_36px_rgba(234,179,8,0.15)]">
-      <div className="rounded-3xl bg-[#05050b]/95 px-5 py-5">
+    <section className="overflow-hidden rounded-[24px] border border-yellow-400/40 bg-gradient-to-br from-[#191b2c] via-[#141528] to-[#090913] p-[1px] shadow-[0_0_28px_rgba(234,179,8,0.15)]">
+      <div className="rounded-[22px] bg-[#05050b]/95 px-4 py-4">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-yellow-200">
+            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-yellow-200">
               Event & Promo
             </p>
             
@@ -58,7 +58,7 @@ export default function PromoHeroBanner() {
          
         </div>
 
-        <div className="relative mt-4 h-[230px] overflow-hidden">
+        <div className="relative mt-3 h-[170px] overflow-hidden">
           {promoEvents.map((promo, index) => {
             const isActive = index === activeIndex;
             return (
@@ -67,21 +67,21 @@ export default function PromoHeroBanner() {
                 href={promo.href}
                 target="_blank"
                 rel="noreferrer"
-                className={`card-glow absolute inset-0 flex flex-col gap-4 rounded-3xl border border-yellow-300/40 bg-gradient-to-br from-yellow-500/15 via-yellow-400/5 to-transparent p-5 text-left shadow-[0_0_28px_rgba(234,179,8,0.2)] transition-all duration-500 ${
+                className={`card-glow absolute inset-0 flex flex-col gap-3 rounded-[20px] border border-yellow-300/35 bg-gradient-to-br from-yellow-500/12 via-yellow-400/5 to-transparent p-4 text-left shadow-[0_0_24px_rgba(234,179,8,0.18)] transition-all duration-500 ${
                   isActive
                     ? "pointer-events-auto opacity-100 translate-x-0"
                     : "pointer-events-none opacity-0 translate-x-6"
                 }`}
               >
-                <div className="flex items-center justify-between text-[0.6rem] font-semibold uppercase tracking-[0.4em] text-yellow-100">
+                <div className="flex items-center justify-between text-[0.55rem] font-semibold uppercase tracking-[0.35em] text-yellow-100">
                   <span>{promo.badge}</span>
                   <span className="text-white/70">{promo.detail}</span>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-white">{promo.title}</h3>
-                  <p className="text-sm text-yellow-50/90">{promo.description}</p>
+                  <h3 className="text-lg font-bold text-white">{promo.title}</h3>
+                  <p className="text-[0.85rem] text-yellow-50/90">{promo.description}</p>
                 </div>
-                <span className="inline-flex items-center justify-center rounded-full border border-yellow-200/70 px-4 py-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.35em] text-yellow-100 transition group-hover:bg-yellow-300/10">
+                <span className="inline-flex items-center justify-center rounded-full border border-yellow-200/70 px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.3em] text-yellow-100 transition group-hover:bg-yellow-300/10">
                   {promo.cta}
                 </span>
               </Link>
