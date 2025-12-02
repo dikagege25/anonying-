@@ -43,7 +43,7 @@ export default function SystemJualBeliPage() {
               
             </h1>
             <p className="text-sm text-yellow-100/80">
-              Pada dasar nya dreamstore hanya sebuah forum jual_beli , bukan yang menjual akun .
+              Pada dasar nya dreamstore hanya sebuah forum jual_beli , bukan yang menjual akun .    
             </p>
           </div>
         </header>

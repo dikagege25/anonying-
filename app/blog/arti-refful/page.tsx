@@ -64,6 +64,7 @@ export default function ArtiReffulPage() {
             <span className="font-semibold text-white">
               identitas PENJUAL
             </span>{" "}
+            
             sebagai jaminan keamanan akun yang dijual. Semakin lengkap refful,
             semakin besar kepercayaan bahwa akunmu aman.
           </p>
